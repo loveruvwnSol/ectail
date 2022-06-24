@@ -5,7 +5,7 @@ import { SideNav } from "../organisms/sidenav"
 import { ProductList } from "../organisms/productlist"
 import { Footer } from "../molecules/footer"
 
-export const Templates = () => {
+export const HomeTemplate = () => {
   return (
     <div>
       <HeaderNav />

@@ -5,6 +5,7 @@ import { NavBarItems } from "./navbarItems"
 import Link from "next/link"
 
 export const NavBar = () => {
+  const navBarGenre = ["NEW RELEASES", "MEN", "WOMEN", "KIDS", "CUSTOMIZE", "SALE", "COLLECTIONS"]
   return (
     <div className='navbar bg-base-100 font-sans'>
       <div className='navbar-start'>
@@ -29,34 +30,12 @@ export const NavBar = () => {
       </div>
       <div className='navbar-center hidden lg:flex'>
         <ul className='menu menu-horizontal p-0'>
-          <li tabIndex={0}>
-            <a className='font-bold'>NEW RELEASES</a>
-            <NavBarItems />
-          </li>
-          <li tabIndex={0}>
-            <a className='font-bold'>MEN</a>
-            <NavBarItems />
-          </li>
-          <li tabIndex={0}>
-            <a className='font-bold'>WOMEN</a>
-            <NavBarItems />
-          </li>
-          <li tabIndex={0} className='hover:decoration-current'>
-            <a className='font-bold'>KIDS</a>
-            <NavBarItems />
-          </li>
-          <li tabIndex={0}>
-            <a className='font-bold'>CUSTOMIZE</a>
-            <NavBarItems />
-          </li>
-          <li tabIndex={0}>
-            <a className='font-bold'>SALE</a>
-            <NavBarItems />
-          </li>
-          <li tabIndex={0}>
-            <a className='font-bold'>COLLECTIONS</a>
-            <NavBarItems />
-          </li>
+          {navBarGenre.map((e, index) => (
+            <li tabIndex={0} key={index}>
+              <a className='font-bold'>{e}</a>
+              <NavBarItems />
+            </li>
+          ))}
         </ul>
       </div>
       <div className='navbar-end gap-5'>
@@ -81,7 +60,7 @@ export const NavBar = () => {
             <AiOutlineHeart className='w-full h-full' />
           </div>
           <div className='h-7 w-7'>
-            <Link href='/kart'>
+            <Link href='/cart'>
               <BsBagIcon />
             </Link>
           </div>

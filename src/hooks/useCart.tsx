@@ -1,7 +1,5 @@
-import create, { useStore } from "zustand"
-import { nanoid } from "nanoid"
+import create from "zustand"
 import { Product } from "../types"
-import { filter } from "@chakra-ui/react"
 
 type UseCart = {
   products: Product[]

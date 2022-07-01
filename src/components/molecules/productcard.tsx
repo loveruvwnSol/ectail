@@ -1,9 +1,8 @@
 import { AiOutlineHeart } from "@react-icons/all-files/ai/AiOutlineHeart"
-import { info } from "console"
 import { ProductInformation } from "./productInformation"
 
 type InformationProps = {
-  information: any
+  information: any[]
 }
 
 export const ProductCard: React.FC<InformationProps> = ({ information }) => {

@@ -1,11 +1,6 @@
-// import { useStore } from "./productInformation"
-import { Product } from "../../types"
 import { useCart } from "../../hooks/useCart"
-import { useStore } from "zustand"
 
 export const CartInformation = () => {
-  // const { id, name, price, size, increment } = useStore
-
   const ItemInfo = useCart()
   const { deleteToCart } = useCart()
   console.log(ItemInfo.products)

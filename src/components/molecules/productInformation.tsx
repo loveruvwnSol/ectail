@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import create from "zustand"
 import { nanoid } from "nanoid"
 import { AiOutlineHeart } from "@react-icons/all-files/ai/AiOutlineHeart"
 import { useCart } from "../../hooks/useCart"

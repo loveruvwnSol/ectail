@@ -1,29 +1,25 @@
-import React from "react"
+import React, { useState } from "react"
 import create from "zustand"
 import { nanoid } from "nanoid"
 import { AiOutlineHeart } from "@react-icons/all-files/ai/AiOutlineHeart"
-
-interface State {
-  id: string
-  name: string
-  imageURL: string
-  price: number | null
-  size: number | null
-  increment: () => void
-}
-
-export const useStore = create<State>((set) => ({
-  id: nanoid(),
-  name: "shoes",
-  imageURL: "",
-  price: 5000,
-  size: 24,
-  increment: () => set((state) => ({ price: state.price && state.price + 100 })),
-}))
+import { useCart } from "../../hooks/useCart"
+import { Product } from "../../types"
 
 export const ProductInformation = () => {
-  const { id, name, price, size, increment } = useStore()
   const sizes = [24, 25, 26, 27, 28, 29, 30]
+  const [size, setSize] = useState<number>()
+  const { addToCart } = useCart()
+
+  const product: Product = {
+    id: nanoid(),
+    name: "shoes",
+    imageURL: "",
+    price: 5000,
+    size: size,
+    status: "exist",
+  }
+  const { id, name, price, ...other } = product
+
   return (
     <div className='modal-box w-11/12 max-w-full'>
       <div className='flex gap-12'>
@@ -38,17 +34,22 @@ export const ProductInformation = () => {
           <div className='divider w-20 m-0' />
           <p className='py-4'>サイズを選択</p>
           <div className='flex gap-2'>
-            {sizes.map((e, index) => (
-              <button
-                key={index}
-                className='btn btn-outline'
-                onClick={() => {
-                  console.log(e)
-                }}
-              >
-                {e}
-              </button>
-            ))}
+            {sizes.map((e, index) => {
+              const activeStyle = "btn btn-outline bg-slate-900 text-white"
+              const inactiveStyle = "btn btn-outline bg-slate-50"
+              return (
+                <button
+                  key={index}
+                  className={size === e ? activeStyle : inactiveStyle}
+                  onClick={() => {
+                    setSize(e)
+                    console.log("size: " + e)
+                  }}
+                >
+                  {e}
+                </button>
+              )
+            })}
           </div>
           <p className='py-4'>
             堅実な性格とこの世のものとは思えない運動能力を兼ね備え、
@@ -60,7 +61,14 @@ export const ProductInformation = () => {
             一方で、Airクッショニングを搭載し、快適な履き心地と、誰もが好むキレのある反発性を実現しました。
           </p>
           <div className='flex gap-5'>
-            <label htmlFor='my-modal-5' className='btn btn-primary'>
+            <label
+              className='btn btn-primary'
+              htmlFor='my-modal-5'
+              onClick={() => {
+                addToCart(product)
+                console.log(product)
+              }}
+            >
               カートに入れる
             </label>
             <button className='btn btn-outline'>

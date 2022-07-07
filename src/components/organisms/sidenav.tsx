@@ -110,7 +110,7 @@ export const SideNav = () => {
             <span>用途で選ぶ</span>
           </li>
           <li>
-            <div>
+            <div className="mb-10">
               <input type='checkbox' className='checkbox checkbox-primary' />
               <p>雨の日</p>
             </div>

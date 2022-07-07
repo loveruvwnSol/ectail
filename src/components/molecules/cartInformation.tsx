@@ -2,8 +2,9 @@ import { useCart } from "../../hooks/useCart"
 
 export const CartInformation = () => {
   const ItemInfo = useCart()
+  const FavItem = useCart()
   const { deleteToCart } = useCart()
-  console.log(ItemInfo.products)
+  const { deleteToFav } = useCart()
 
   return (
     <div className='mt-20 flex justify-around'>
@@ -35,7 +36,6 @@ export const CartInformation = () => {
                         className='btn btn-outline'
                         onClick={() => {
                           deleteToCart(e)
-                          console.log(ItemInfo.products)
                         }}
                       >
                         カートから削除
@@ -48,6 +48,40 @@ export const CartInformation = () => {
         </div>
         <div className='mb-20'>
           <p className='text-3xl'>お気に入り</p>
+          <div className='grid grid-cols-3 gap-4 mb-5'>
+            {FavItem.favs
+              .filter((fav) => fav.status === "exist")
+              .map((e, index) => (
+                <div className='card w-72 bg-base-100 shadow-xl m-3 rounded-none' key={index}>
+                  <figure>
+                    <img src='https://api.lorem.space/image/shoes?w=400&h=225' alt='Shoes' />
+                  </figure>
+                  <div className='card-body'>
+                    <div className='flex gap-5'>
+                      <h2 className='card-title text-2xl'>{e.name}</h2>
+                      <div className='card-actions justify-end mt-1'>
+                        <div className='badge badge-outline'>Fashion</div>
+                        <div className='badge badge-outline'>Products</div>
+                      </div>
+                    </div>
+                    <div className='flex'>
+                      <p>￥{e.price}</p>
+                      <p>サイズ : {e.size}</p>
+                    </div>
+                    <div className='flex justify-end mt-7'>
+                      <button
+                        className='btn btn-outline'
+                        onClick={() => {
+                          deleteToFav(e)
+                        }}
+                      >
+                        お気に入りから削除
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))}
+          </div>
         </div>
       </div>
       <div>

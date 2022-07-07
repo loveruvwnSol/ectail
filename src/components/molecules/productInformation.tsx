@@ -8,6 +8,7 @@ export const ProductInformation = () => {
   const sizes = [24, 25, 26, 27, 28, 29, 30]
   const [size, setSize] = useState<number>()
   const { addToCart } = useCart()
+  const { addToFav } = useCart()
 
   const product: Product = {
     id: nanoid(),
@@ -70,7 +71,12 @@ export const ProductInformation = () => {
             >
               カートに入れる
             </label>
-            <button className='btn btn-outline'>
+            <button
+              className='btn btn-outline'
+              onClick={() => {
+                addToFav(product)
+              }}
+            >
               お気に入りに追加 <AiOutlineHeart />
             </button>
           </div>

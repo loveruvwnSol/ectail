@@ -3,7 +3,8 @@ export type Product = {
   name: string
   imageURL: string
   price: number | null
-  size: number | undefined
+  size: string | number | undefined
+  tags: string[]
   status: string
 }
 
@@ -12,6 +13,7 @@ export type Favs = {
   name: string
   imageURL: string
   price: number | null
-  size: number | undefined
+  size: string | number | undefined
+  tags: string[]
   status: string
 }

@@ -33,7 +33,7 @@ export const ProductCard: React.FC<InformationProps> = ({ information }) => {
       </label>
       <input type='checkbox' id='my-modal-5' className='modal-toggle' />
       <div className='modal'>
-        <ProductInformation />
+        {/* <ProductInformation /> */}
       </div>
     </div>
   )

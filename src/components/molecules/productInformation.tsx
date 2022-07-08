@@ -1,21 +1,36 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { nanoid } from "nanoid"
 import { AiOutlineHeart } from "@react-icons/all-files/ai/AiOutlineHeart"
+import { BsBagFill } from "@react-icons/all-files/bs/BsBagFill"
 import { useCart } from "../../hooks/useCart"
 import { Product } from "../../types"
 
-export const ProductInformation = () => {
-  const sizes = [24, 25, 26, 27, 28, 29, 30]
+type NamesProps = {
+  productName: string
+  productPrice: number
+  productSizes: any[]
+  productTags: string[]
+  modalName: string
+}
+
+export const ProductInformation: React.FC<NamesProps> = ({
+  productName,
+  productPrice,
+  productSizes,
+  productTags,
+  modalName,
+}) => {
   const [size, setSize] = useState<number>()
   const { addToCart } = useCart()
   const { addToFav } = useCart()
 
   const product: Product = {
     id: nanoid(),
-    name: "shoes",
+    name: productName,
     imageURL: "",
-    price: 5000,
+    price: productPrice,
     size: size,
+    tags:productTags,
     status: "exist",
   }
   const { id, name, price, ...other } = product
@@ -25,18 +40,21 @@ export const ProductInformation = () => {
       <div className='flex gap-12'>
         <img className='p-14' src='https://api.lorem.space/image/shoes?w=400&h=225' alt='Shoes' />
         <div className=''>
-          <h3 className='font-bold text-3xl mb-2'>{name}</h3>
+          <h3 className='font-bold text-3xl mb-2'>{productName}</h3>
           <div className='card-actions'>
-            <div className='badge badge-outline'>Fashion</div>
-            <div className='badge badge-outline'>Products</div>
+            {productTags.map((e, idx) => (
+              <div key={idx} className='badge badge-outline'>
+                {e}
+              </div>
+            ))}
           </div>
           <p className='py-4'>￥ {price}</p>
           <div className='divider w-20 m-0' />
           <p className='py-4'>サイズを選択</p>
           <div className='flex gap-2'>
-            {sizes.map((e, index) => {
+            {productSizes.map((e, index) => {
               const activeStyle = "btn btn-outline bg-slate-900 text-white"
-              const inactiveStyle = "btn btn-outline bg-slate-50"
+              const inactiveStyle = "btn btn-outline"
               return (
                 <button
                   key={index}
@@ -63,13 +81,14 @@ export const ProductInformation = () => {
           <div className='flex gap-5'>
             <label
               className='btn btn-primary'
-              htmlFor='my-modal-5'
+              htmlFor={modalName}
               onClick={() => {
                 addToCart(product)
                 console.log(product)
               }}
             >
               カートに入れる
+              <BsBagFill className='w-7' />
             </label>
             <button
               className='btn btn-outline'
@@ -77,13 +96,13 @@ export const ProductInformation = () => {
                 addToFav(product)
               }}
             >
-              お気に入りに追加 <AiOutlineHeart />
+              お気に入りに追加 <AiOutlineHeart className='w-7' />
             </button>
           </div>
         </div>
       </div>
       <div className='modal-action'>
-        <label htmlFor='my-modal-5' className='btn'>
+        <label htmlFor={modalName} className='btn'>
           閉じる
         </label>
       </div>

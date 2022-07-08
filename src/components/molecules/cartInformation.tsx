@@ -15,7 +15,7 @@ export const CartInformation = () => {
             {ItemInfo.products
               .filter((product) => product.status === "exist")
               .map((e, index) => (
-                <div className='card w-72 bg-base-100 shadow-xl m-3 rounded-none' key={index}>
+                <div className='card w-80 bg-base-100 shadow-xl m-3 rounded-none' key={index}>
                   <figure>
                     <img src='https://api.lorem.space/image/shoes?w=400&h=225' alt='Shoes' />
                   </figure>
@@ -23,8 +23,9 @@ export const CartInformation = () => {
                     <div className='flex gap-5'>
                       <h2 className='card-title text-2xl'>{e.name}</h2>
                       <div className='card-actions justify-end mt-1'>
-                        <div className='badge badge-outline'>Fashion</div>
-                        <div className='badge badge-outline'>Products</div>
+                        {e.tags.map((e, idx) => (
+                          <div className='badge badge-outline'>{e}</div>
+                        ))}
                       </div>
                     </div>
                     <div className='flex'>
@@ -52,7 +53,7 @@ export const CartInformation = () => {
             {FavItem.favs
               .filter((fav) => fav.status === "exist")
               .map((e, index) => (
-                <div className='card w-72 bg-base-100 shadow-xl m-3 rounded-none' key={index}>
+                <div className='card w-80 bg-base-100 shadow-xl m-3 rounded-none' key={index}>
                   <figure>
                     <img src='https://api.lorem.space/image/shoes?w=400&h=225' alt='Shoes' />
                   </figure>

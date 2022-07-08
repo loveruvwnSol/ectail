@@ -30,7 +30,7 @@ export const ProductInformation: React.FC<NamesProps> = ({
     imageURL: "",
     price: productPrice,
     size: size,
-    tags:productTags,
+    tags: productTags,
     status: "exist",
   }
   const { id, name, price, ...other } = product
@@ -84,7 +84,6 @@ export const ProductInformation: React.FC<NamesProps> = ({
               htmlFor={modalName}
               onClick={() => {
                 addToCart(product)
-                console.log(product)
               }}
             >
               カートに入れる
@@ -102,7 +101,13 @@ export const ProductInformation: React.FC<NamesProps> = ({
         </div>
       </div>
       <div className='modal-action'>
-        <label htmlFor={modalName} className='btn'>
+        <label
+          htmlFor={modalName}
+          className='btn'
+          onClick={() => {
+            setSize(undefined)
+          }}
+        >
           閉じる
         </label>
       </div>

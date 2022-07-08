@@ -67,7 +67,6 @@ export const CartInformation = () => {
                     </div>
                     <div className='flex'>
                       <p>￥{e.price}</p>
-                      <p>サイズ : {e.size}</p>
                     </div>
                     <div className='flex justify-end mt-7'>
                       <button

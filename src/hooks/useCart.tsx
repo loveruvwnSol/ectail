@@ -14,8 +14,14 @@ type UseCart = {
 export const useCart = create<UseCart>((set) => ({
   products: [],
   favs: [],
-  addToCart: (product) => set((state) => ({ products: [...state.products, product] })),
-  addToFav: (fav) => set((state) => ({ favs: [...state.favs, fav] })),
+  addToCart: (product) => {
+    if (product.size !== undefined) {
+      set((state) => ({ favs: [...state.favs, product] }))
+    } else {
+      alert("サイズを選んでください")
+    }
+  },
+  addToFav: (fav) => set((state) => ({ products: [...state.products, fav] })),
   deleteToCart: (product) => {
     product.status = "delete"
     set((state) => ({ products: [...state.products, product] }))

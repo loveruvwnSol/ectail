@@ -1,11 +1,13 @@
+import React, { useCallback, useState } from "react"
 import { AiOutlineHeart } from "@react-icons/all-files/ai/AiOutlineHeart"
 import { BsFillHeartFill } from "@react-icons/all-files/bs/BsFillHeartFill"
 import { ProductInformation } from "../molecules/productInformation"
 import { Informations } from "../../informations"
+import { useCart } from "../../hooks/useCart"
 
 export const ProductList = () => {
   return (
-    <div className=''>
+    <div className='z-5'>
       <div className='ml-20 mt-20'>
         <div className='grid grid-cols-3 gap-4 mb-5'>
           {Informations.map((e, index) => {
@@ -23,9 +25,6 @@ export const ProductList = () => {
                           {e.name}
                           <div className='badge badge-secondary'>NEW</div>
                         </h2>
-                        <div className='h-9 w-9 rounded-2xl flex items-center justify-center'>
-                          <AiOutlineHeart className='h-7 w-7' />
-                        </div>
                       </div>
                       <p>{e.detail}</p>
                       <div className='card-actions justify-end'>

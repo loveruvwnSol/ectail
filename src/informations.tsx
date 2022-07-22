@@ -6,6 +6,7 @@ export const Informations = [
     price: 5000,
     img: "https://api.lorem.space/image/shoes?w=400&h=225",
     tags: ["Fashion", "shoes"],
+    fav: false,
   },
   {
     name: "T-shirt",
@@ -14,6 +15,7 @@ export const Informations = [
     price: 7000,
     img: "",
     tags: ["Fashion", "T-shirt"],
+    fav: false,
   },
   {
     name: "Glasses",
@@ -22,5 +24,6 @@ export const Informations = [
     price: 10000,
     img: "",
     tags: ["Fashion", "Glasses"],
+    fav: false,
   },
 ]

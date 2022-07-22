@@ -24,7 +24,9 @@ export const CartInformation = () => {
                       <h2 className='card-title text-2xl'>{e.name}</h2>
                       <div className='card-actions justify-end mt-1'>
                         {e.tags.map((e, idx) => (
-                          <div className='badge badge-outline'>{e}</div>
+                          <div className='badge badge-outline' key={idx}>
+                            {e}
+                          </div>
                         ))}
                       </div>
                     </div>

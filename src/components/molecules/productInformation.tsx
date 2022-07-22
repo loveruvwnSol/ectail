@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import { nanoid } from "nanoid"
 import { AiOutlineHeart } from "@react-icons/all-files/ai/AiOutlineHeart"
 import { BsBagFill } from "@react-icons/all-files/bs/BsBagFill"
@@ -84,6 +84,7 @@ export const ProductInformation: React.FC<NamesProps> = ({
               htmlFor={modalName}
               onClick={() => {
                 addToCart(product)
+                setSize(undefined)
               }}
             >
               カートに入れる

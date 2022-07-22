@@ -16,15 +16,16 @@ export const useCart = create<UseCart>((set) => ({
   favs: [],
   addToCart: (product) => {
     if (product.size !== undefined) {
-      set((state) => ({ favs: [...state.favs, product] }))
+      set((state) => ({ products: [...state.products, product] }))
     } else {
       alert("サイズを選んでください")
     }
   },
-  addToFav: (fav) => set((state) => ({ products: [...state.products, fav] })),
+  addToFav: (fav) => set((state) => ({ favs: [...state.favs, fav] })),
   deleteToCart: (product) => {
     product.status = "delete"
     set((state) => ({ products: [...state.products, product] }))
+    console.log(product)
   },
   deleteToFav: (fav) => {
     fav.status = "delete"

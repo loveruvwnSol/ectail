@@ -2,9 +2,13 @@ import React from "react"
 import { AiOutlineHeart } from "@react-icons/all-files/ai/AiOutlineHeart"
 import { BsBagIcon } from "../../atoms/BsBag"
 import { NavBarItems } from "./navbarItems"
+import { useCart } from "../../../hooks/useCart"
 import Link from "next/link"
 
 export const NavBar = () => {
+  const ItemInfo = useCart()
+  console.log(ItemInfo.products)
+  const CartItems = ItemInfo.products.filter((item) => item.status === "exist")
   const navBarGenre = ["NEW RELEASES", "MEN", "WOMEN", "KIDS", "CUSTOMIZE", "SALE", "COLLECTIONS"]
   return (
     <div className='navbar bg-base-100 font-sans'>
@@ -55,14 +59,39 @@ export const NavBar = () => {
             <input type='text' placeholder='検索' className='input input-bordered' />
           </div>
         </div>
-        <div className='flex gap-5'>
-          <div className='h-7 w-7'>
-            <AiOutlineHeart className='w-full h-full' />
-          </div>
-          <div className='h-7 w-7'>
-            <Link href='/cart'>
-              <BsBagIcon />
-            </Link>
+        <div className='flex items-center gap-2'>
+          <div className='flex-none w-full h-full'>
+            <div className='dropdown dropdown-end'>
+              <label tabIndex={0} className='btn btn-ghost btn-circle'>
+                <div className='indicator'>
+                  <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    className='h-5 w-5'
+                    fill='none'
+                    viewBox='0 0 24 24'
+                    stroke='currentColor'
+                  >
+                    <path
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      strokeWidth='2'
+                      d='M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z'
+                    />
+                  </svg>
+                  <span className='badge badge-sm indicator-item'>{CartItems.length}</span>
+                </div>
+              </label>
+              <div className='mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow'>
+                <div className='card-body'>
+                  <span className='font-bold text-lg'>{CartItems.length} Items</span>
+                  <div className='card-actions'>
+                    <Link href='/cart'>
+                      <button className='btn btn-primary btn-block'>カートに行く</button>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

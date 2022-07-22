@@ -37,8 +37,12 @@ export const ProductInformation: React.FC<NamesProps> = ({
 
   return (
     <div className='modal-box w-11/12 max-w-full'>
-      <div className='flex gap-12'>
-        <img className='p-14' src='https://api.lorem.space/image/shoes?w=400&h=225' alt='Shoes' />
+      <div className='lg:flex gap-12'>
+        <img
+          className='mb-5 lg:p-14 lg:flex lg:justify-center'
+          src='https://api.lorem.space/image/shoes?w=400&h=225'
+          alt='Shoes'
+        />
         <div className=''>
           <h3 className='font-bold text-3xl mb-2'>{productName}</h3>
           <div className='card-actions'>
@@ -51,7 +55,7 @@ export const ProductInformation: React.FC<NamesProps> = ({
           <p className='py-4'>￥ {price}</p>
           <div className='divider w-20 m-0' />
           <p className='py-4'>サイズを選択</p>
-          <div className='flex gap-2'>
+          <div className='md:flex gap-2'>
             {productSizes.map((e, index) => {
               const activeStyle = "btn btn-outline bg-slate-900 text-white"
               const inactiveStyle = "btn btn-outline"
@@ -78,9 +82,9 @@ export const ProductInformation: React.FC<NamesProps> = ({
             <br />
             一方で、Airクッショニングを搭載し、快適な履き心地と、誰もが好むキレのある反発性を実現しました。
           </p>
-          <div className='flex gap-5'>
+          <div className='lg:flex gap-5'>
             <label
-              className='btn btn-primary'
+              className='btn btn-primary mb-7 mr-7'
               htmlFor={modalName}
               onClick={() => {
                 addToCart(product)

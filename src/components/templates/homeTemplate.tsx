@@ -11,7 +11,7 @@ export const HomeTemplate = () => {
       <HeaderNav />
       <NavBar />
       <AdvertisingBar />
-      <div className='flex'>
+      <div className='flex justify-center md:justify-start'>
         <SideNav />
         <ProductList />
       </div>

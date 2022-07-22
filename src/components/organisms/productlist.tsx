@@ -8,8 +8,8 @@ import { useCart } from "../../hooks/useCart"
 export const ProductList = () => {
   return (
     <div className='z-5'>
-      <div className='ml-20 mt-20'>
-        <div className='grid grid-cols-3 gap-4 mb-5'>
+      <div className='m-auto mt-20 sm:ml-20'>
+        <div className='grid grid-cols-1 gap-4 mb-5 md:grid-cols-2 justify-center lg:grid-cols-2 xl:grid-cols-3'>
           {Informations.map((e, index) => {
             const modalName = e.name + index
             return (

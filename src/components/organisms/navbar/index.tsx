@@ -14,7 +14,7 @@ export const NavBar = () => {
     <div className='navbar bg-base-100 font-sans'>
       <div className='navbar-start'>
         <div className='dropdown'>
-          <label tabIndex={0} className='btn btn-ghost lg:hidden'>
+          <label tabIndex={0} className='btn btn-ghost xl:hidden'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               className='h-5 w-5'
@@ -32,7 +32,7 @@ export const NavBar = () => {
           </svg>
         </Link>
       </div>
-      <div className='navbar-center hidden lg:flex'>
+      <div className='navbar-center hidden xl:flex'>
         <ul className='menu menu-horizontal p-0'>
           {navBarGenre.map((e, index) => (
             <li tabIndex={0} key={index}>
@@ -43,7 +43,7 @@ export const NavBar = () => {
         </ul>
       </div>
       <div className='navbar-end gap-5'>
-        <div className='form-control'>
+        <div className='form-control md:block hidden'>
           <div className='input-group'>
             <button className='btn btn-square'>
               <svg

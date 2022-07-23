@@ -6,28 +6,16 @@ import Link from "next/link"
 
 export const NavBar = () => {
   const ItemInfo = useCart()
-  console.log(ItemInfo.products)
   const CartItems = ItemInfo.products.filter((item) => item.status === "exist")
   const navBarGenre = ["NEW RELEASES", "MEN", "WOMEN", "KIDS", "CUSTOMIZE", "SALE", "COLLECTIONS"]
   return (
     <div className='navbar bg-base-100 font-sans'>
       <div className='navbar-start'>
         <div className='dropdown'>
-          {/* <label tabIndex={0} className='btn btn-ghost xl:hidden'>
-            <svg
-              xmlns='http://www.w3.org/2000/svg'
-              className='h-5 w-5'
-              fill='none'
-              viewBox='0 0 24 24'
-              stroke='currentColor'
-            >
-              <path d='M4 6h16M4 12h8m-8 6h16' />
-            </svg>
-          </label> */}
           <HamburgerBtn navBarGenre={navBarGenre} />
         </div>
         <Link href='/'>
-          <svg className='pre-logo-svg h-16 w-16 fill-slate-900 ml-10' viewBox='0 0 69 32'>
+          <svg className='pre-logo-svg h-16 w-16 fill-slate-900 lg:ml-10' viewBox='0 0 69 32'>
             <path d='M68.56 4L18.4 25.36Q12.16 28 7.92 28q-4.8 0-6.96-3.36-1.36-2.16-.8-5.48t2.96-7.08q2-3.04 6.56-8-1.6 2.56-2.24 5.28-1.2 5.12 2.16 7.52Q11.2 18 14 18q2.24 0 5.04-.72z'></path>
           </svg>
         </Link>

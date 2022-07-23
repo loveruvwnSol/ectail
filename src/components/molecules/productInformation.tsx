@@ -65,7 +65,6 @@ export const ProductInformation: React.FC<NamesProps> = ({
                   className={size === e ? activeStyle : inactiveStyle}
                   onClick={() => {
                     setSize(e)
-                    console.log("size: " + e)
                   }}
                 >
                   {e}

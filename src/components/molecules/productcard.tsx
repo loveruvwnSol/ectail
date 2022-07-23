@@ -1,5 +1,4 @@
 import { AiOutlineHeart } from "@react-icons/all-files/ai/AiOutlineHeart"
-import { ProductInformation } from "./productInformation"
 
 type InformationProps = {
   information: any[]
@@ -33,7 +32,6 @@ export const ProductCard: React.FC<InformationProps> = ({ information }) => {
       </label>
       <input type='checkbox' id='my-modal-5' className='modal-toggle' />
       <div className='modal'>
-        {/* <ProductInformation /> */}
       </div>
     </div>
   )

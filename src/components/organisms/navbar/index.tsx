@@ -74,7 +74,7 @@ export const NavBar = () => {
                   <span className='font-bold text-lg'>{CartItems.length} Items</span>
                   <div className='card-actions'>
                     <Link href='/cart'>
-                      <button className='btn btn-primary btn-block'>カートに行く</button>
+                      <div className='btn btn-primary btn-block'>カートに行く</div>
                     </Link>
                   </div>
                 </div>

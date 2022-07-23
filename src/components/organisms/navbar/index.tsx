@@ -1,8 +1,7 @@
 import React from "react"
-import { AiOutlineHeart } from "@react-icons/all-files/ai/AiOutlineHeart"
-import { BsBagIcon } from "../../atoms/BsBag"
 import { NavBarItems } from "./navbarItems"
 import { useCart } from "../../../hooks/useCart"
+import { HamburgerBtn } from "../../molecules/hamburgerBtn"
 import Link from "next/link"
 
 export const NavBar = () => {
@@ -14,7 +13,7 @@ export const NavBar = () => {
     <div className='navbar bg-base-100 font-sans'>
       <div className='navbar-start'>
         <div className='dropdown'>
-          <label tabIndex={0} className='btn btn-ghost xl:hidden'>
+          {/* <label tabIndex={0} className='btn btn-ghost xl:hidden'>
             <svg
               xmlns='http://www.w3.org/2000/svg'
               className='h-5 w-5'
@@ -24,7 +23,8 @@ export const NavBar = () => {
             >
               <path d='M4 6h16M4 12h8m-8 6h16' />
             </svg>
-          </label>
+          </label> */}
+          <HamburgerBtn navBarGenre={navBarGenre} />
         </div>
         <Link href='/'>
           <svg className='pre-logo-svg h-16 w-16 fill-slate-900 ml-10' viewBox='0 0 69 32'>

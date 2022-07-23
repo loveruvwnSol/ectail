@@ -1,9 +1,6 @@
 import React, { useCallback, useState } from "react"
-import { AiOutlineHeart } from "@react-icons/all-files/ai/AiOutlineHeart"
-import { BsFillHeartFill } from "@react-icons/all-files/bs/BsFillHeartFill"
 import { ProductInformation } from "../molecules/productInformation"
 import { Informations } from "../../informations"
-import { useCart } from "../../hooks/useCart"
 
 export const ProductList = () => {
   return (

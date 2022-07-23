@@ -84,7 +84,7 @@ export const ProductInformation: React.FC<NamesProps> = ({
           </p>
           <div className='lg:flex gap-5'>
             <label
-              className='btn btn-primary mb-7 mr-7'
+              className='btn btn-primary mb-7'
               htmlFor={modalName}
               onClick={() => {
                 addToCart(product)
